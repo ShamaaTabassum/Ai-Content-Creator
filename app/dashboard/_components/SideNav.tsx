@@ -32,7 +32,7 @@ const MenuList=[
 ]
 
   return (
-    <div className='h-screen p-5 shadow-sm border'>
+    <div className='h-screen p-5 shadow-sm border bg-white'>
       <div className='flex justify-start items-start cursor-pointer'> 
         <Image src='/logo.svg' alt='logo' width={250} height={80}/>
       </div>

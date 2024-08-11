@@ -11,13 +11,12 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,pageProps
+  children,
 }: Readonly<{
   children: React.ReactNode;
-  pageProps: any;
 }>) {
   return (
-    <ClerkProvider {...pageProps}
+    <ClerkProvider
     publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
     <html lang="en">
       <body className={outfit.className}>{children}</body>

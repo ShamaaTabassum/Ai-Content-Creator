@@ -8,9 +8,10 @@ import { Button } from '@/components/ui/button';
 
 interface SELECTEDTEMPPROPS{
   selectedTemplate?:TEMPLATE;
+  userFormInput:any;
 }
 
-const FormSection = ({selectedTemplate}:SELECTEDTEMPPROPS) => {
+const FormSection = ({selectedTemplate,userFormInput}:SELECTEDTEMPPROPS) => {
 
   const [formData,setFormData]=useState<any>();
 
@@ -20,7 +21,7 @@ const FormSection = ({selectedTemplate}:SELECTEDTEMPPROPS) => {
 
   const onSubmit=(e:any)=>{
     e.preventDefault();
-    console.log(formData);
+userFormInput(formData);
   }
 
   function handleInputChange(event:any){
@@ -43,7 +44,7 @@ setFormData({...formData,[name]:value})
     item.field=='input'?
     <Input name={item.name} required={item?.required} onChange={handleInputChange}/>:
     item.field=='textarea'?
-    <Textarea name={item.name} required={item?.required} onChange={handleInputChange}/>:
+    <Textarea name={item.name} required={item?.required} onChange={handleInputChange} />:
     null
   }
 </div>

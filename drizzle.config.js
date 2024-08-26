@@ -3,6 +3,6 @@ export default {
     schema: "./utils/schema.tsx",
     dialect: 'postgresql',
     dbCredentials: {
-      url: 'postgresql://accounts:KWq1D6lHeixc@ep-misty-hall-a5z0v22w.us-east-2.aws.neon.tech/Ai-Content-Creator?sslmode=require',
+      url: 'postgresql://Ai-Content-Creator_owner:rD40gacROtnh@ep-autumn-union-a523vdu5.us-east-2.aws.neon.tech/Ai-Content-Creator?sslmode=require',
     }
   };

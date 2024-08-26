@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Check, Copy } from 'lucide-react';
 
 interface OUTPUTSECTIONPROPS {
-  aiOutput: string;
+  aiOutput:string;
 }
 
 const OutputSection = ({ aiOutput }: OUTPUTSECTIONPROPS) => {

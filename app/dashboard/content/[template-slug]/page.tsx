@@ -57,7 +57,7 @@ const CreateNewContent = (props: PROPS) => {
         <FormSection selectedTemplate={selectedTemplate} userFormInput={(data: any) => GenerateAiContent(data)} loading={loading} />
         {/* OutputSection */}
         <div className='lg:col-span-2'>
-          <OutputSection aiOutput={aiOutput}/>
+          <OutputSection aiOutput={aiOutput.toString()}/>
         </div>
       </div>
     </div>

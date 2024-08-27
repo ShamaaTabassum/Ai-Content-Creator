@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect } from 'react'
+import UsageTrack from './UsageTrack'
 
 const SideNav = () => {
 
@@ -33,7 +34,7 @@ const MenuList=[
 ]
 
   return (
-    <div className='h-screen p-5 shadow-sm border bg-white'>
+    <div className='h-screen p-5 shadow-sm border bg-white relative'>
       <Link href={'/dashboard'}>
       <div className='flex justify-start items-start cursor-pointer'> 
         <Image src='/logo.svg' alt='logo' width={250} height={80} priority={true}/>
@@ -49,6 +50,9 @@ const MenuList=[
 </div>
         </Link>
       ))}
+      <div className='absolute bottom-10 left-0 w-full'>
+      <UsageTrack/>
+      </div>
       </div>
     </div>
   )

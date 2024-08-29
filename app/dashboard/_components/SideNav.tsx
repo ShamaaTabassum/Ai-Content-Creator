@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import React, { useEffect } from 'react'
 import UsageTrack from './UsageTrack'
 
+
 const SideNav = () => {
 
   let path=usePathname();
@@ -28,7 +29,7 @@ const MenuList=[
   },
   {
     name:'Setting',
-    path:'/dashboard/setting',
+    path:'/dashboard/settings',
     icon:Settings,
   },
 ]

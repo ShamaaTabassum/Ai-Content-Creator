@@ -3,15 +3,16 @@ import { Button } from '@/components/ui/button'
 import { db } from '@/utils/db';
 import { AIOutput } from '@/utils/schema';
 import { useUser } from '@clerk/nextjs'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { HISTORY } from '../history/page';
 import { eq } from 'drizzle-orm';
+import { TotalUsageContext } from '@/app/(context)/TotalUsageContext';
 
 const UsageTrack = () => {
 
     const {user} = useUser();
-    const [totalUsage,setTotalUsage]=useState<number>(0);
-    const [maxWords,setMaxWords]=useState(50000)
+    const {totalUsage,setTotalUsage}=useContext(TotalUsageContext);
+    const [maxWords,setMaxWords]=useState(10000)
 
     
     useEffect(()=>{

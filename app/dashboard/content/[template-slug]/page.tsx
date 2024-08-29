@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import FormSection from '../_components/FormSection'
 import OutputSection from '../_components/OutputSection'
 import { TEMPLATE } from '../../_components/TemplateListSection'
@@ -11,6 +11,8 @@ import { AIOutput } from '@/utils/schema'
 import { db } from '@/utils/db'
 import { useUser } from '@clerk/nextjs'
 import moment from 'moment';
+import { useRouter } from 'next/navigation'
+import { TotalUsageContext } from '@/app/(context)/TotalUsageContext'
 
 interface PROPS {
   params: {
@@ -25,8 +27,17 @@ const CreateNewContent = (props: PROPS) => {
 
   const selectedTemplate: TEMPLATE | undefined = Templates?.find((item) => item.slug == props.params['template-slug'])
   const {user}:any=useUser();
+  const router=useRouter();
+  const {totalUsage,setTotalUsage}=useContext(TotalUsageContext)
+
 
   const GenerateAiContent = async (formData: any) => {
+    if(totalUsage>=10000)
+      {
+          console.log("Please Upgrade");
+          router.push('/dashboard/billing')
+          return ;
+      }
     setLoading(true);
     const SelectedPrompt = selectedTemplate?.aiPrompt;
     const FinalAiPrompt = JSON.stringify(formData) + ", " + SelectedPrompt;
@@ -44,7 +55,6 @@ const CreateNewContent = (props: PROPS) => {
       createdBy:user?.primaryEmailAddress?.emailAddress,
       createdAt:moment().format('DD/MM/YYYY')
     });
-    console.log(result);
   }
 
   return (

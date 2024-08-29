@@ -51,8 +51,7 @@ const OutputSection = ({ aiOutput }: OUTPUTSECTIONPROPS) => {
         initialValue="Your result will appeat here"
         height="600px"
         initialEditType="markdown"
-        useCommandShortcut={true}
-        onChange={() => console.log(editorRef.current.getInstance().getMarkdown())} /></div>
+        useCommandShortcut={true}/></div>
   )
 }
 

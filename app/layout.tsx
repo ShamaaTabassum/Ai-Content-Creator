@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter,Outfit } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -19,7 +20,10 @@ export default function RootLayout({
     <ClerkProvider
     publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
     <html lang="en">
-      <body className={outfit.className}>{children}</body>
+      <body className={outfit.className}>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
     </ClerkProvider>
   );
